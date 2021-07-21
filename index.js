@@ -52,7 +52,7 @@ class NewebPay {
         return decryptedTradeInfo
     }
 
-    static _encryptAES(tradeInfo) {
+    _encryptAES(tradeInfo) {
         const tradeInfoQueryString = querystring.stringify(tradeInfo)
 
         const cipher = crypto.createCipheriv('aes-256-cbc', this.key, this.iv)
@@ -65,7 +65,7 @@ class NewebPay {
         return encrypted
     }
 
-    static _encryptSHA256(aes) {
+    _encryptSHA256(aes) {
         const queryString = `HashKey=${this.key}&${aes}&HashIV=${this.iv}`
         const hash = crypto
             .createHash('sha256')
@@ -76,7 +76,7 @@ class NewebPay {
         return result
     }
 
-    static _decryptAES(TradeInfoAES) {
+    _decryptAES(TradeInfoAES) {
         const decrypt = crypto.createDecipheriv('aes256', this.key, this.iv)
         decrypt.setAutoPadding(false)
         const text = decrypt.update(TradeInfoAES, 'hex', 'binary')
@@ -86,7 +86,7 @@ class NewebPay {
         return result
     }
 
-    static _addPadding(string, blockSize = 32) {
+    _addPadding(string, blockSize = 32) {
         const len = string.length
         const pad = blockSize - (len % blockSize)
         const chr = String.fromCharCode(pad)
@@ -95,7 +95,7 @@ class NewebPay {
         return string
     }
 
-    static _getMerchantOrderNo() {
+    _getMerchantOrderNo() {
         return 'i_am_merchant_order_number'
     }
 }
