@@ -1,7 +1,7 @@
-import crypto from 'crypto'
-import querystring from 'querystring'
+const crypto = require('crypto')
+const querystring = require('querystring')
 
-export default class NewebPay {
+module.exports = class NewebPay {
     constructor(key, iv) {
         this.key = key
         this.iv = iv
