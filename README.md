@@ -23,7 +23,7 @@ const key = '12345678901234567890123456789012'
 const iv = '1234567890123456
 ```
 
->`key` and `iv` are encrypt params provide by newebpay, ***each store has different value***, please get the correct key/iv corresponding to the store from the person in change.
+>`key` and `iv` are encrypt params provide by newebpay, ***each store has different value***, please get the correct key/iv corresponding to the store from the person in charge.
 
 Next step is to create an instance via `NewebPay` constructor with `key` and `iv`
 ```
@@ -85,7 +85,7 @@ console.log(result)
 ### newebpay.getEncryptedFormPostData([tradeInfo])
 
 tradeInfo:
-- MerchantID(string)(**Required**) web store ID (please get correct value from thie person in change)
+- MerchantID(string)(**Required**) web store ID (please get correct value from thie person in charge)
 - Amt(number)(**Required**) merchantise price
 - ItemDesc(string)(**Required**) merchantise detail displays in payment page
 
