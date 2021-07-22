@@ -46,7 +46,7 @@ class NewebPay {
 
      */
 
-    getDecryptedResponseData(tradeInfoAES) {
+    getDecryptedTradeInfo(tradeInfoAES) {
         const decryptedQueryString = this._decryptAES(tradeInfoAES)
         const decryptedTradeInfo = querystring.parse(decryptedQueryString)
         return decryptedTradeInfo
