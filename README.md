@@ -82,16 +82,16 @@ console.log(result)
 ```
 
 ## API
-**newebpay.getEncryptedFormPostData([tradeInfo])**
+### newebpay.getEncryptedFormPostData([tradeInfo])
 
 tradeInfo:
-- MerchantID(string)(**Required**)
-- Amt(number)(**Required**)
-- ItemDesc(string)(**Required**)
+- MerchantID(string)(**Required**) web store ID (please get correct value from thie person in change)
+- Amt(number)(**Required**) merchantise price
+- ItemDesc(string)(**Required**) merchantise detail displays in payment page
 
 Return an object contains form-post-needed data
 
-**newebpay.getDecryptedTradeInfo([string])**
+### newebpay.getDecryptedTradeInfo([string])
 
 Decrypt AES string into trade info object
 
