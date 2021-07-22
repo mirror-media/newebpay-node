@@ -1,4 +1,4 @@
-# NewebPay Changelog
+# newebpay-node Changelog
 
 ## 2021-07-22 Version 1.0.1 @liyibass
 ### Notable Changes

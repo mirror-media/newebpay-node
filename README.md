@@ -14,7 +14,7 @@ yarn add @mirror-media/newebpay-node
 #### Prepare
 First, you need to import a constructor from @mirror-media/newebpay-node
 ```
-import NewebPay from '@mirror-media/newebpay-node'
+import NewebPay from '@mirrormedia/newebpay-node'
 ```
 
 The next step is to define two variables: `key` and `iv`, the following key/iv is just for testing(provide by doc)
