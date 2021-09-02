@@ -48,12 +48,12 @@ class NewebPay {
 
     getDecryptedTradeInfo(tradeInfoAES) {
         const decryptedQueryString = this._decryptAES(tradeInfoAES)
-        const decryptedTradeInfo = JSON.parse(decryptedQueryString)
+        const decryptedTradeInfo = querystring.parse(decryptedQueryString)
         return decryptedTradeInfo
     }
 
     _encryptAES(tradeInfo) {
-        const tradeInfoString = JSON.stringify(tradeInfo)
+        const tradeInfoString = querystring.stringify(tradeInfo)
         const cipher = crypto.createCipheriv('aes-256-cbc', this.key, this.iv)
         const encrypted = cipher.update(
             this._addPadding(tradeInfoString),

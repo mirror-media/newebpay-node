@@ -1,4 +1,5 @@
 # newebpay-node
+
 newebpay-node is a encrypt/decrypt handler for dealing with newabpay.
 
 ## Installation
@@ -12,26 +13,32 @@ yarn add @mirror-media/newebpay-node
 ## Usage
 
 #### Prepare
+
 First, you need to import a constructor from @mirror-media/newebpay-node
+
 ```
 import NewebPay from '@mirrormedia/newebpay-node'
 ```
 
 The next step is to define two variables: `key` and `iv`, the following key/iv is just for testing(provide by doc)
+
 ```
 const key = '12345678901234567890123456789012'
-const iv = '1234567890123456
+const iv = '1234567890123456'
 ```
 
->`key` and `iv` are encrypt params provide by newebpay, ***each store has different value***, please get the correct key/iv corresponding to the store from the person in charge.
+> `key` and `iv` are encrypt params provide by newebpay, **_each store has different value_**, please get the correct key/iv corresponding to the store from the person in charge.
 
 Next step is to create an instance via `NewebPay` constructor with `key` and `iv`
+
 ```
 const newebpay = new NewebPay(key, iv)
 ```
 
 #### Encrypt Payload
+
 To encrypt data, please create an object which contains specific params, then use `newebpay.getEncryptedFormPostData()` to encrypt it
+
 ```
 const tradeInfo = {
         MerchantID: 'MS315799494',
@@ -50,10 +57,13 @@ console.log(formPost)
 // }
 
 ```
+
 Finally use those params to fire form-post request.
 
 #### Decrypt Response Data
-After payment is finished, newebpay may returns an object just like this: 
+
+After payment is finished, newebpay may returns an object just like this:
+
 ```
 const responseData = {
 	Status: 'SUCCESS',
@@ -66,6 +76,7 @@ const responseData = {
 ```
 
 If we want to know trade infomation, just decrypt `TradeInfo` by `newebpay.getDecryptedTradeInfo()`
+
 ```
 const result = newebpay.getDecryptedTradeInfo(responseData.TradeInfo)
 
@@ -82,19 +93,17 @@ console.log(result)
 ```
 
 ## API
+
 ### newebpay.getEncryptedFormPostData([tradeInfo])
 
 tradeInfo:
-- MerchantID(string)(**Required**) web store ID (please get correct value from thie person in charge)
-- Amt(number)(**Required**) merchantise price
-- ItemDesc(string)(**Required**) merchantise detail displays in payment page
+
+-   MerchantID(string)(**Required**) web store ID (please get correct value from thie person in charge)
+-   Amt(number)(**Required**) merchantise price
+-   ItemDesc(string)(**Required**) merchantise detail displays in payment page
 
 Return an object contains form-post-needed data
 
 ### newebpay.getDecryptedTradeInfo([string])
 
 Decrypt AES string into trade info object
-
-
-
-
