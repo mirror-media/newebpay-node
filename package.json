@@ -1,6 +1,6 @@
 {
     "name": "@mirrormedia/newebpay-node",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "handle newebpay payment",
     "author": "mirror-media",
     "main": "index.js",
