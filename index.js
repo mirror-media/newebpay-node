@@ -25,6 +25,7 @@ class NewebPay {
             MerchantOrderNo: this._getMerchantOrderNo(),
             ...tradeInfo,
         }
+        console.log(tradeInfoPackage)
 
         const MerchantID = tradeInfoPackage.MerchantID
         const TradeInfo = this._encryptAES(tradeInfoPackage)
@@ -49,6 +50,12 @@ class NewebPay {
     getDecryptedTradeInfo(tradeInfoAES) {
         const decryptedQueryString = this._decryptAES(tradeInfoAES)
         const decryptedTradeInfo = querystring.parse(decryptedQueryString)
+
+        Object.keys(decryptedTradeInfo).forEach((key) => {
+            if (key === 'Amt' || key === 'TokenUseStatus') {
+                decryptedTradeInfo[key] = parseInt(decryptedTradeInfo[key])
+            }
+        })
         return decryptedTradeInfo
     }
 
@@ -81,7 +88,6 @@ class NewebPay {
         const text = decrypt.update(TradeInfoAES, 'hex', 'binary')
         const plainText = text + decrypt.final('binary')
         const result = plainText.replace(/[\x00-\x20]+/g, '') // eslint-disable-line
-
         return result
     }
 
