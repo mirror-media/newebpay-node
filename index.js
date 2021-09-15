@@ -25,7 +25,6 @@ class NewebPay {
             MerchantOrderNo: this._getMerchantOrderNo(),
             ...tradeInfo,
         }
-        console.log(tradeInfoPackage)
 
         const MerchantID = tradeInfoPackage.MerchantID
         const TradeInfo = this._encryptAES(tradeInfoPackage)
