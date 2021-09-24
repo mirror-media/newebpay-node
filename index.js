@@ -48,7 +48,7 @@ class NewebPay {
 
     getDecryptedTradeInfo(tradeInfoAES) {
         const decryptedQueryString = this._decryptAES(tradeInfoAES)
-        const decryptedTradeInfo = querystring.parse(decryptedQueryString)
+        const decryptedTradeInfo = JSON.parse(decryptedQueryString)
 
         Object.keys(decryptedTradeInfo).forEach((key) => {
             if (key === 'Amt' || key === 'TokenUseStatus') {
