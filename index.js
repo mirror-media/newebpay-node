@@ -48,7 +48,21 @@ class NewebPay {
 
     getDecryptedTradeInfo(tradeInfoAES) {
         const decryptedQueryString = this._decryptAES(tradeInfoAES)
-        const decryptedTradeInfo = JSON.parse(decryptedQueryString)
+
+        let decryptedTradeInfo = ''
+        try {
+            if (isJson(decryptedQueryString)) {
+                // decryptedQueryString is JSON structure
+                decryptedTradeInfo = JSON.parse(decryptedQueryString)
+            } else {
+                // decryptedQueryString is querysting structure
+                decryptedTradeInfo = {
+                    ...querystring.parse(decryptedQueryString),
+                }
+            }
+        } catch (error) {
+            console.error(error)
+        }
 
         Object.keys(decryptedTradeInfo).forEach((key) => {
             if (key === 'Amt' || key === 'TokenUseStatus') {
@@ -56,6 +70,15 @@ class NewebPay {
             }
         })
         return decryptedTradeInfo
+
+        function isJson(str) {
+            try {
+                JSON.parse(str)
+            } catch (e) {
+                return false
+            }
+            return true
+        }
     }
 
     _encryptAES(tradeInfo) {
