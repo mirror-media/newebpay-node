@@ -19,13 +19,13 @@ export interface TradeInfo {
   // 回傳格式
   RespondType: RespondType;
   // 時間戳記
-  TimeStamp: number;
+  TimeStamp: string;
   // 串接程式版本
   Version: string;
   // 語系
   LangType?: LangType | undefined;
   // 商店訂單編號
-  MerchantOrderNo: number;
+  MerchantOrderNo: string;
   // 訂單金額
   Amt: number;
   // 商品資訊
