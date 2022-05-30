@@ -10,6 +10,32 @@ class NewebPay {
     constructor(key, iv) {
         this.key = key
         this.iv = iv
+
+        this.intKeys = [
+            // number type
+            'Amt',
+            'TradeLimit',
+            // Switch type
+            'LoginType',
+            // OptionalSwitch type
+            'EmailModify',
+            'CREDIT',
+            'ANDROIDPAY',
+            'SAMSUNGPAY',
+            'LINEPAY',
+            'CreditRed',
+            'UNIONPAY',
+            'WEBATM',
+            'VACC',
+            'CVS',
+            'BARCODE',
+            'SUNWALLET',
+            'TAIWANPAY',
+            'CVSCOM',
+            'EZPAY',
+            'EZPWECHAT',
+            'EZPALIPAY'
+        ]
     }
 
     /**
@@ -65,7 +91,7 @@ class NewebPay {
         }
 
         Object.keys(decryptedTradeInfo).forEach((key) => {
-            if (key === 'Amt' || key === 'TokenUseStatus') {
+            if (this.intKeys.includes(key)) {
                 decryptedTradeInfo[key] = parseInt(decryptedTradeInfo[key])
             }
         })
