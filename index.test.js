@@ -1,4 +1,4 @@
-import NewebPay from './index'
+const NewebPay = require('./index.js')
 
 const key = '12345678901234567890123456789012'
 const iv = '1234567890123456'
