@@ -1,5 +1,6 @@
 const crypto = require('crypto')
 const querystring = require('querystring')
+const intKeys = require('./intKeys.js')
 
 /** @constructor */
 class NewebPay {
@@ -10,32 +11,6 @@ class NewebPay {
     constructor(key, iv) {
         this.key = key
         this.iv = iv
-
-        this.intKeys = [
-            // number type
-            'Amt',
-            'TradeLimit',
-            // Switch type
-            'LoginType',
-            // OptionalSwitch type
-            'EmailModify',
-            'CREDIT',
-            'ANDROIDPAY',
-            'SAMSUNGPAY',
-            'LINEPAY',
-            'CreditRed',
-            'UNIONPAY',
-            'WEBATM',
-            'VACC',
-            'CVS',
-            'BARCODE',
-            'SUNWALLET',
-            'TAIWANPAY',
-            'CVSCOM',
-            'EZPAY',
-            'EZPWECHAT',
-            'EZPALIPAY'
-        ]
     }
 
     /**
@@ -91,7 +66,7 @@ class NewebPay {
         }
 
         Object.keys(decryptedTradeInfo).forEach((key) => {
-            if (this.intKeys.includes(key)) {
+            if (intKeys.includes(key)) {
                 decryptedTradeInfo[key] = parseInt(decryptedTradeInfo[key])
             }
         })
