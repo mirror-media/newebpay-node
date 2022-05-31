@@ -1,5 +1,6 @@
 const crypto = require('crypto')
 const querystring = require('querystring')
+const intKeys = require('./intKeys.js')
 
 /** @constructor */
 class NewebPay {
@@ -65,7 +66,7 @@ class NewebPay {
         }
 
         Object.keys(decryptedTradeInfo).forEach((key) => {
-            if (key === 'Amt' || key === 'TokenUseStatus') {
+            if (intKeys.includes(key)) {
                 decryptedTradeInfo[key] = parseInt(decryptedTradeInfo[key])
             }
         })

@@ -4,11 +4,12 @@
     "description": "handle newebpay payment",
     "author": "mirror-media",
     "main": "index.js",
+    "types": "index.d.ts",
     "engines": {
         "node": ">=10.0.0"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "build": "webpack --mode production",
         "dev": "webpack --mode development"
     },
@@ -19,13 +20,12 @@
         "babel-loader": "^8.2.2",
         "css-loader": "^6.2.0",
         "dart-sass": "^1.25.0",
+        "eslint-plugin-jest": "^26.2.2",
+        "jest": "^28.1.0",
         "sass-loader": "^12.1.0",
         "style-loader": "^3.2.1",
         "webpack": "^5.45.1",
         "webpack-cli": "^4.7.2"
     },
-    "dependencies": {
-        "crypto": "^1.0.1",
-        "querystring": "^0.2.1"
-    }
+    "dependencies": {}
 }

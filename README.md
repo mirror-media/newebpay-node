@@ -7,14 +7,14 @@ newebpay-node is a encrypt/decrypt handler for dealing with newabpay.
 To get up and running with newebpay-node, run the following commands.
 
 ```
-yarn add @mirror-media/newebpay-node
+yarn add @mirrormedia/newebpay-node
 ```
 
 ## Usage
 
 #### Prepare
 
-First, you need to import a constructor from @mirror-media/newebpay-node
+First, you need to import a constructor from @mirrormedia/newebpay-node
 
 ```
 import NewebPay from '@mirrormedia/newebpay-node'
